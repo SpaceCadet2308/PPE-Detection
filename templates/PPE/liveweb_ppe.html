@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        header.feature-box.top {
+          font-family: 'Poppins', sans-serif;
+            background-color: black;
+            height: 100px;
+            margin: 0px;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        header.feature-box.second {
+          font-family: 'Poppins', sans-serif;
+            background-color: #333;
+            height: 50px;
+            text-align: center;
+            margin-top: -25px;
+            line-height: 50px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .features {
+          font-family: 'Poppins', sans-serif;
+            background-color: black;
+            width: 900px;
+            height: 700px;
+            border-radius: 35px;
+            object-fit: contain;
+            margin: 20px auto;
+        }
+
+        section.col-sm {
+            background-color: black;
+            width: 900px;
+            height: 600px;
+            border-radius: 35px;
+            object-fit: contain;
+            margin: 20px auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 35px;
+            object-fit: contain;
+        }
+
+        .upload-form {
+            margin: auto;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .upload-form input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        .upload-form input[type="submit"] {
+            background-color: green;
+            color: black;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .upload-form input[type="submit"]:hover {
+            background-color: darkgreen;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<header class="feature-box top">
+    <h1><strong>Object Detection using YOLOv8</strong></h1>
+</header>
+<header class="feature-box second">
+    <h1><strong>Output Video</strong></h1>
+</header>
+
+<section class="col-sm">
+    <img src="{{ url_for('YOLO_Video.py') }}" alt="Upload video">
+</section>
+
+</body>
+</html>

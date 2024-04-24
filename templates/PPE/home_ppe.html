@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ObjectDetection-YOLOv8</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Body styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f8f8f8;
+        color: #333;
+        line-height: 1.6;
+        padding-top: 60px;
+      }
+
+      /* Header styles */
+      header {
+        background-color: #222;
+        color: #fff;
+        padding: 15px 0;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 4px solid #ff4500; /* Add a sleek border */
+        transition: border-bottom 0.3s ease; /* Add transition for smooth color change */
+      }
+
+      header nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      header nav ul li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease; /* Add transition for smooth color change */
+      }
+
+      /* Hover styles for navigation links */
+      header nav ul li a:hover {
+        color: #ff4500; /* Change the color to orange on hover */
+        transform: translateY(-2px); /* Add a subtle upward movement */
+      }
+
+      /* Main content styles */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+        background: linear-gradient(
+          to bottom right,
+          #fff,
+          #f0f0f0
+        ); /* Add gradient background */
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add sleek shadow */
+        transition: box-shadow 0.3s ease; /* Add transition for smooth shadow change */
+      }
+
+      .container:hover {
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.2); /* Change shadow on hover */
+      }
+
+      .features {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .features figure {
+        margin: 0;
+      }
+
+      .features figure img {
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease; /* Add transition for smooth transform */
+      }
+
+      .features figure img:hover {
+        transform: scale(1.05); /* Scale image on hover */
+      }
+
+      .main h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333; /* Change title color */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle text shadow */
+      }
+
+      .main h4 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+        color: #555; /* Change subtitle color */
+      }
+
+      .main p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #777; /* Change paragraph color */
+      }
+
+      /* Contact form styles */
+      .contactpage {
+        margin-top: 40px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .contactpage h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .contactpage p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      .contactpage form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .contactpage form p {
+        margin: 10px;
+      }
+
+      .contactpage form input[type="text"] {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      .contactpage form button {
+        padding: 10px 20px;
+        background-color: #222;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 69px;
+      }
+
+      .contactpage form button:hover {
+        background-color: #444;
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #222;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="home_ppe.html">Home</a></li>
+          <li><a href="vp_ppe.html">Video</a></li>
+          <li><a href="liveweb_ppe.html">Live Webcam</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <section class="features">
+        <figure>
+          <img src="{{ url_for('static', filename='1.jpeg') }}" />
+          <figcaption>YOLOv8 Results 1</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ url_for('static', filename='3.webp') }}">
+          <figcaption>YOLOv8 Results 2</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ url_for('static', filename='2.ppm') }}" />
+          <figcaption>YOLOv8 Results 3</figcaption>
+        </figure>
+      </section>
+
+      <div class="main">
+        <div class="subpart1">
+          <h1>Object Detection using YOLOv8</h1>
+          <br />
+          <h4>FPS of Video</h4>
+          <p>
+            FPS represents the Frame Rate, in case of GPU the FPS will be high
+            while in case of CPU the FPS will be low
+          </p>
+          <br />
+          <h4>Shape of Current Frame</h4>
+          <p>
+            The shape of the current frame i.e. Resolution will be calculated
+          </p>
+          <br />
+          <h4>Detections in Current Frame</h4>
+          <p>Total detections in each frame will be calculated</p>
+          <br />
+        </div>
+      </div>
+
+      <div class="subpart2">
+        <figure>
+          <img src="{{ url_for('static', filename='crosswalk-1.webp') }}">
+          <figcaption>Sample Results</figcaption>
+        </figure>
+      </div>
+
+      <div class="contactpage">
+        <h1>Contact</h1>
+        <br />
+        <p>In case of any query, do let me know</p>
+        <form action="/action_page.php" target="_blank">
+          <p>
+            <input type="text" placeholder="Name" required name="Name" />
+          </p>
+          <p>
+            <input
+              type="text"
+              placeholder="Email ID"
+              required
+              name="Email ID"
+            />
+          </p>
+          <p><button type="submit">SEND MESSAGE</button></p>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy;</p>
+    </footer>
+  </body>
+</html>
